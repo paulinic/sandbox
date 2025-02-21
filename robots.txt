@@ -1,0 +1,139 @@
+# robots.txt zu https://www.nzz.ch/
+
+
+User-agent: *
+Disallow: /suche$
+Disallow: /suche?
+Disallow: /add-visit/
+Disallow: /add-article-share/
+Disallow: /statistic
+Disallow: /marktplaetze/
+Disallow: /IDMS/
+Disallow: /nzzidms/
+Disallow: /test/
+Disallow: /inbox
+Disallow: /app.php/
+Disallow: /_fragment?
+Disallow: /fragments/render/
+Disallow: /overlay/
+Disallow: /themen/uebersicht/
+Disallow: /api/
+Disallow: /webview/
+Disallow: /webview2/
+Disallow: /msn/
+Disallow: /screen/image/
+Disallow: /dynamic-partials/
+Disallow: /digitaldata
+Disallow: /sport/live-resultate
+
+Sitemap: https://www.nzz.ch/sitemap.xml
+
+User-agent: Googlebot-News
+Disallow: /branded-content
+Disallow: /sponsored-content
+Disallow: /promoted-content
+Disallow: /sponsored-topic
+Disallow: /marktplaetze
+Disallow: /themen-dossiers
+
+User-agent: MegaIndex.ru/2.0
+Disallow: /
+
+User-agent: BLP_bbot/0.1
+Disallow: /
+
+User-agent: Slurp
+Crawl-delay: 1
+
+User-agent: GPTBot
+Disallow: /
+
+User-agent: ChatGPT-User
+Disallow: /
+
+User-agent: Google-Extended
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+User-agent: anthropic-ai
+Disallow: /
+
+User-agent: Bytespider
+Disallow: /
+
+User-agent: ClaudeBot
+Disallow: /
+
+User-agent: Claude-Web
+Disallow: /
+
+User-agent: cohere-ai
+Disallow: /
+
+User-agent: DataForSeoBot
+Disallow: /
+
+User-agent: Diffbot
+Disallow: /
+
+User-agent: FacebookBot
+Disallow: /
+
+User-agent: magpie-crawler
+Disallow: /
+
+User-agent: NewsNow
+Disallow: /
+
+User-agent: news-please
+Disallow: /
+
+User-agent: omgilibot
+Disallow: /
+
+User-agent: PerplexityBot
+Disallow: /
+
+User-agent: Amazonbot
+Disallow: /
+
+User-agent: Applebot-Extended
+Disallow: /
+
+User-agent: AwarioRssBot
+Disallow: /
+
+User-agent: AwarioSmartBot
+Disallow: /
+
+User-agent: FriendlyCrawler
+Disallow: /
+
+User-agent: ImagesiftBot
+Disallow: /
+
+User-agent: Meta-ExternalAgent
+Disallow: /
+
+User-agent: meta-externalagent
+Disallow: /
+
+User-agent: OAI-SearchBot
+Disallow: /
+
+User-agent: peer39_crawler
+Disallow: /
+
+User-agent: peer39_crawler/1.0
+Disallow: /
+
+User-agent: Quora-Bot
+Disallow: /
+
+User-agent: Scrapy
+Disallow: /
+
+User-agent: TurnitinBot
+Disallow: /
