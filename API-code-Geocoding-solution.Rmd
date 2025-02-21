@@ -1,0 +1,85 @@
+---
+title: "Geo-Genius: Unveil the Location"
+author: "Andrea De Angelis"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+In this exercise, we'll use the `httr` and `jsonlite` packages in R to make an HTTP request to the OpenCage Geocoding API, which provides latitude and longitude coordinates for a given address. The exercise demonstrates how to make a GET request, parse the JSON response, and extract relevant information.
+
+Objective: Determine the latitude and longitude of a given address using the OpenCage Geocoding API.
+
+# Install and load the packages
+
+Install and load the `httr` and `jsonlite` pakcages. 
+
+```{r}
+library("httr"); library("jsonlite")
+```
+
+# Sign up for a free OpenCage API key
+
+The link is available here: https://opencagedata.com/api 
+
+```{r}
+browseURL(url = "https://opencagedata.com/api")
+api_key <- rstudioapi::askForPassword()
+base_url <- "https://api.opencagedata.com/geocode/v1/json"
+```
+
+# Define an address
+
+```{r}
+address <- "Frohburgstrasse 3, 6002 Luzern"
+```
+
+# Make a GET request
+
+```{r}
+geocoding_response <- httr::GET(url = base_url, 
+                                query = list(key = api_key, q = address))
+```
+
+# Check the status code
+
+```{r}
+http_status(geocoding_response)
+
+# Something more elaborate that could be used in a personalized application:
+if (http_status(geocoding_response)$category != "Success") {
+  stop("The API request failed with status code: ", http_status(geocoding_response)$status_code)
+}
+
+```
+
+# Parse JSON and display
+
+```{r}
+# Extract the content from the response object using the `httr::content()` function. 
+
+# Eventually use rsonlite::fromJSON()
+r_json <- fromJSON(httr::content(geocoding_response, as = "text"))
+
+# Or just parse the content
+geocoding_data <- httr::content(geocoding_response)
+
+# Check out how much info is returned!
+str(geocoding_data$results, 2)
+geocoding_data$results[[1]]$annotations$currency$symbol   # The currency of the address
+geocoding_data$results[[1]]$annotations$flag              # The flag of the address
+
+# We actually got five places at this address:
+geocoding_data$results[[1]]$formatted
+geocoding_data$results[[5]]$formatted
+
+# Get latitude and longitude of the University:
+latitude <- geocoding_data$results[[1]]$geometry$lat[1]
+longitude <- geocoding_data$results[[1]]$geometry$lng[1]
+
+cat("Latitude: ", latitude, "\nLongitude: ", longitude)
+```
+
